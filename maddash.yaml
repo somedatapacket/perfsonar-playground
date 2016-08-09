@@ -43,16 +43,18 @@ http:
 # any alphanumeric name. A host may belong to multiple groups.
 groups:
     myOwampHosts :
-        - "chic-owamp.es.net"
-        - "nettest.lbl.gov"
         - "198.111.227.235"
         - "198.111.226.26"
+        - "141.213.253.141"
+        - "141.213.135.1"
+		- "35.2.0.100"
         
     myBwctlHosts :
-        - "chic-pt1.es.net"
-        - "nettest.lbl.gov"
         - "198.111.227.235"
         - "198.111.226.26"
+        - "141.213.253.141"
+        - "141.213.135.1"
+		- "35.2.0.100"
 
 ##
 # 'groupMembers' allow you to assign special properties to items in 'groups': 
@@ -62,17 +64,18 @@ groups:
 #         number passed to a check but on the GUI you want a human-readable value displayed
 #     - Set the "pstoolkiturl" to the URL of a perfSONAR Toolkit web page
 groupMembers:
-    - id: "chic-pt1.es.net"
-      label: "Chicago Tester" 
-    - id: "nettest.lbl.gov"
-      label: "LBL Toolkit"
-      pstoolkiturl: "http://nettest.lbl.gov/toolkit"
     - id: "198.111.226.26"
       label: "maddash box"
       pstoolkiturl: "http://198.111.226.26/toolkit" 
     - id: "198.111.227.235"
       label: "Roy's box"
       pstoolkiturl: "http://198.111.227.235/toolkit"
+    - id: "141.213.253.141"
+      label: "liva1"
+    - id: "141.213.135.1"
+      label: "liva2"
+    - id: "35.2.0.100"
+      label: "liva3"
 ##
 
 ##
