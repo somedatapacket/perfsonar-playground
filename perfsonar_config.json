@@ -1,0 +1,152 @@
+{
+   "administrators" : [
+      {
+         "email" : "ppatel@umich.edu",
+         "name" : "Pradip Patel"
+      }
+   ],
+   "organizations" : [
+      {
+         "sites" : [
+            {
+               "hosts" : [
+                  {
+                     "addresses" : [
+                        "198.111.226.26"
+                     ],
+                     "description" : "iLab pstoolkit MA"
+                  },
+                  {
+                     "addresses" : [
+                        "198.111.227.235"
+                     ],
+                     "description" : "iLab pstoolkit ROY"
+                  },
+                  {
+                     "addresses" : [
+                        "141.213.253.141"
+                     ],
+                     "description" : "LIVA1"
+                  },
+                  {
+                     "addresses" : [
+                        "141.213.135.18"
+                     ],
+                     "description" : "LIVA2"
+                  },
+                  {
+                     "addresses" : [
+                        "35.2.0.100"
+                     ],
+                     "description" : "LIVA3 (wi-fi)"
+                  }
+               ],
+               "administrators" : [
+                  {
+                     "email" : "ppatel@umich.edu",
+                     "name" : "Pradip Patel"
+                  }
+               ],
+               "location" : {
+                  "city" : "Ann Arbor",
+                  "longitude" : "-83.742831",
+                  "latitude" : "42.275883",
+                  "state" : "MI"
+               }
+            }
+         ],
+         "administrators" : [
+            {
+               "email" : "ppatel@umich.edu",
+               "name" : "Pradip Patel"
+            }
+         ],
+         "measurement_archives" : [
+            {
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "type" : "traceroute"
+            },
+            {
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "type" : "perfsonarbuoy/owamp"
+            },
+            {
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "type" : "perfsonarbuoy/bwctl"
+            },
+            {
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "type" : "pinger"
+            }
+         ],
+         "description" : "University of Michigan"
+      }
+   ],
+   "tests" : [
+      {
+         "members" : {
+            "members" : [
+               "198.111.226.26",
+               "198.111.227.235",
+               "141.213.253.141",
+               "141.213.135.18",
+               "35.2.0.100"
+            ],
+            "type" : "mesh"
+         },
+         "parameters" : {
+            "protocol" : "tcp",
+            "tool" : "bwctl/iperf3",
+            "duration" : "20",
+            "type" : "perfsonarbuoy/bwctl",
+            "interval" : "14400"
+         },
+         "description" : "TCP BWCTL Test Between DICE Bandwidth Hosts"
+      },
+      {
+         "members" : {
+            "members" : [
+               "198.111.226.26",
+               "198.111.227.235",
+               "141.213.253.141",
+               "141.213.135.18",
+               "35.2.0.100"
+            ],
+            "type" : "mesh"
+         },
+         "parameters" : {
+            "protocol" : "udp",
+            "udp_bandwidth" : "50000000",
+            "tool" : "bwctl/iperf3",
+            "duration" : "10",
+            "type" : "perfsonarbuoy/bwctl",
+            "interval" : "86400"
+         },
+         "description" : "UDP BWCTL Test Between DICE Bandwidth Hosts"
+      },
+      {
+         "members" : {
+            "members" : [
+               "198.111.226.26",
+               "198.111.227.235",
+               "141.213.253.141",
+               "141.213.135.18",
+               "35.2.0.100"
+            ],
+            "type" : "mesh"
+         },
+         "parameters" : {
+            "bucket_width" : "0.001",
+            "sample_count" : "600",
+            "packet_interval" : "0.1",
+            "type" : "perfsonarbuoy/owamp"
+         },
+         "description" : "OWAMP Test Between DICE Latency Hosts"
+      }
+   ],
+   "description" : "MPerf Mesh"
+}

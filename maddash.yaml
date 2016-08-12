@@ -1,3 +1,4 @@
+<<<<<<< .merge_file_GHyon6
 ##
 # Set the directory where the database will be stored
 database: /var/lib/maddash/ 
@@ -81,6 +82,8 @@ groupMembers:
 ##
 # 'checks' are where you define a template for a check to execute. You'll provide a 
 #  command to run, 
+=======
+>>>>>>> .merge_file_2vvTB6
 checks:
   MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts_-_Loss:
     checkInterval: 1800
