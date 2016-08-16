@@ -18,7 +18,11 @@ http://software.es.net/maddash/config_server.html
 
 Useful Advice:
 
+https://lists.internet2.edu/sympa/arc/perfsonar-user/2016-08/msg00038.html
+
 https://lists.internet2.edu/sympa/arc/perfsonar-user/2015-07/msg00078.html
+
+https://lists.internet2.edu/sympa/arc/perfsonar-user/2015-07/msg00073.html
 
 Useful Examples:
 
