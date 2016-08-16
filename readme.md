@@ -2,7 +2,11 @@ Useful Commands:
 
 /usr/lib/perfsonar/bin/generate_configuration
 
+/usr/lib/perfsonar/bin/generate_gui_configuration
+
 /etc/init.d/perfsonar-regulartesting restart
+
+/etc/init.d/maddash-server restart
 
 Useful Documentation:
 
