@@ -1,73 +1,8 @@
-##
-# Set the directory where the database will be stored
-database: /var/lib/maddash/ 
-
-##
-# Set the number of jobs that can run in parallel. Default is 20.
-#jobThreadPoolSize: 20
-
-##
-# Set number of jobs that can be in queue at one time. Default is 250.
-#jobBatchSize: 250
-
-###
-# Disable the job scheduler if you only want to run the REST server
-#disableScheduler: 0
-
-###
-# Skips table and index rebuild at start-up. It can speed up start-up time if set to 1.
-#skipTableBuild: 0
-
-##
-# Set the host where the REST server listens
+database: /var/lib/maddash/
 serverHost: "localhost"
-
-##
-# Activate http and set the port where it listens
 http: 
     port: 8881
 
-##
-# Activate https and set port and keystores
-#https:
-#    port: 8882
-#    keystore: "/usr/lib/maddash/maddash-webui/etc/maddash.jks"
-#    keystorePassword: "changeit"
-# want, require or off
-#    clientAuth: "want" 
-
-##
-# 'groups' are where you define lists of hosts. You need to provide the name of the group 
-# and the list of the hosts in that group. The default example below defines two groups:
-# "myOwampHosts" and "myBwctlHosts". You can define any number of other groups and give them
-# any alphanumeric name. A host may belong to multiple groups.
-groups:
-    myOwampHosts :
-        - "198.111.227.235"
-        - "198.111.226.26"
-        - "141.213.253.141"
-        - "141.213.135.1"
-        - "35.2.0.100"
-        
-    myBwctlHosts :
-        - "198.111.227.235"
-        - "198.111.226.26"
-        - "141.213.253.141"
-        - "141.213.135.1"
-        - "35.2.0.100"
-
-##
-# 'groupMembers' allow you to assign special properties to items in 'groups': 
-#     - Set the "id" to the value used in the "group" list. This is required.
-#     - Set the "label" to the name  you want displayed. This block 
-#         is useful in cases where you want  a value such as an IP address or port 
-#         number passed to a check but on the GUI you want a human-readable value displayed
-#     - Set the "pstoolkiturl" to the URL of a perfSONAR Toolkit web page
-##
-
-##
-# 'checks' are where you define a template for a check to execute. You'll provide a 
-#  command to run, 
 checks:
   MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts_-_Loss:
     checkInterval: 1800
@@ -210,66 +145,7 @@ checks:
     timeout: 60
     type: net.es.maddash.checks.PSNagiosCheck
     warning_description: Throughput < 900Mbps
-  bwctlCheck:
-    checkInterval: 28800
-    description: Throughput from %row to %col (according to %row MA)
-    name: Throughput
-    params:
-      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w .1: -c .01: -r 86400 -s %row -d %col'
-      graphUrl: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?url=%maUrl&dest=%col&source=%row
-      maUrl:
-        default: http://localhost/esmond/perfsonar/archive
-    retryAttempts: 3
-    retryInterval: 600
-    timeout: 60
-    type: net.es.maddash.checks.PSNagiosCheck
-  bwctlRevCheck:
-    checkInterval: 28800
-    description: Throughput from %col to %row (according to %row MA)
-    name: Throughput Reverse
-    params:
-      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w .1: -c .01: -r 86400 -s %col -d %row'
-      graphUrl: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?url=%maUrl&dest=%row&source=%col
-      maUrl:
-        default: http://localhost/esmond/perfsonar/archive
-    retryAttempts: 3
-    retryInterval: 600
-    timeout: 60
-    type: net.es.maddash.checks.PSNagiosCheck
-  owampLossCheck:
-    checkInterval: 1800
-    description: Loss from %row to %col (according to %row MA)
-    name: Loss
-    params:
-      command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0 -c 0 -r 1800 -l -p -s %row -d %col
-      graphUrl: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?url=%maUrl&dest=%col&source=%row
-      maUrl:
-        default: http://localhost/esmond/perfsonar/archive
-    retryAttempts: 3
-    retryInterval: 300
-    timeout: 60
-    type: net.es.maddash.checks.PSNagiosCheck
-  owampLossRevCheck:
-    checkInterval: 1800
-    description: Loss from %col to %row (according to %row MA)
-    name: Loss Reverse
-    params:
-      command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0 -c 0 -r 900 -l -p -s %col -d %row
-      graphUrl: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?url=%maUrl&dest=%row&source=%col
-      maUrl:
-        default: http://localhost/esmond/perfsonar/archive
-    retryAttempts: 3
-    retryInterval: 300
-    timeout: 60
-    type: net.es.maddash.checks.PSNagiosCheck
 dashboards:
-  -
-    grids:
-      -
-        name: OWAMP
-      -
-        name: BWCTL
-    name: My Sites
   -
     added_by_mesh_agent: 1
     grids:
@@ -280,46 +156,7 @@ dashboards:
       -
         name: 'MPerf Mesh - OWAMP Test Between DICE Latency Hosts'
     name: MPerf Mesh
-database: /var/lib/maddash/
 grids:
-  -
-    checks:
-      - owampLossCheck
-      - owampLossRevCheck
-    colOrder: alphabetical
-    columnAlgorithm: all
-    columns: myOwampHosts
-    excludeSelf: 1
-    name: OWAMP
-    rowOrder: alphabetical
-    rows: myOwampHosts
-    statusLabels:
-      critical: Loss is greater than 0
-      notrun: Check has not yet run
-      ok: Loss is 0
-      unknown: Unable to retrieve data
-  -
-    checks:
-      - bwctlCheck
-      - bwctlRevCheck
-    colOrder: alphabetical
-    columnAlgorithm: all
-    columns: myBwctlHosts
-    excludeSelf: 1
-    name: BWCTL
-    rowOrder: alphabetical
-    rows: myBwctlHosts
-    statusLabels:
-      critical: Throughput < 10Mbps
-      extra:
-        -
-          description: Down for maintenance
-          shortName: EVENT
-          value: 5
-      notrun: Check has not yet run
-      ok: Throughput >= 100Mbps
-      unknown: Unable to retrieve data
-      warning: Throughput >= 10Mbps
   -
     added_by_mesh_agent: 1
     checks:
@@ -411,18 +248,3 @@ groups:
     - 198.111.226.26
     - 141.213.135.18
     - 198.111.227.235
-  myBwctlHosts:
-    - 198.111.227.235
-    - 198.111.226.26
-    - 141.213.253.141
-    - 141.213.135.18
-    - 35.2.0.100
-  myOwampHosts:
-    - 198.111.227.235
-    - 198.111.226.26
-    - 141.213.253.141
-    - 141.213.135.18
-    - 35.2.0.100
-http:
-  port: 8881
-serverHost: localhost
