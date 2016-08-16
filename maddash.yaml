@@ -63,19 +63,6 @@ groups:
 #         is useful in cases where you want  a value such as an IP address or port 
 #         number passed to a check but on the GUI you want a human-readable value displayed
 #     - Set the "pstoolkiturl" to the URL of a perfSONAR Toolkit web page
-groupMembers:
-    - id: "198.111.226.26"
-      label: "maddash box"
-      pstoolkiturl: "http://198.111.226.26/toolkit" 
-    - id: "198.111.227.235"
-      label: "Roy's box"
-      pstoolkiturl: "http://198.111.227.235/toolkit"
-    - id: "141.213.253.141"
-      label: "liva1"
-    - id: "141.213.135.1"
-      label: "liva2"
-    - id: "35.2.0.100"
-      label: "liva3"
 ##
 
 ##
@@ -385,23 +372,6 @@ grids:
       unknown: Unable to retrieve data
       warning: Loss rate is >= 0
 groupMembers:
-  -
-    id: 198.111.226.26
-    label: maddash box
-    pstoolkiturl: http://198.111.226.26/toolkit
-  -
-    id: 198.111.227.235
-    label: Roy's box
-    pstoolkiturl: http://198.111.227.235/toolkit
-  -
-    id: 141.213.253.141
-    label: liva1
-  -
-    id: 141.213.135.18
-    label: liva2
-  -
-    id: 35.2.0.100
-    label: liva3
   -
     added_by_mesh_agent: yes
     id: 198.111.226.26
