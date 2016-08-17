@@ -1,12 +1,7 @@
-database: /var/lib/maddash/
-serverHost: "localhost"
-http: 
-    port: 8881
-
 checks:
-  MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts_-_Loss:
+  MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss:
     checkInterval: 1800
-    critical_description: Loss rate is >= 0.01
+    critical_description: Loss rate is >= 0.1
     description: Loss from %row to %col
     excludeChecks:
       141.213.135.18:
@@ -19,41 +14,88 @@ checks:
         - 198.111.227.235
       35.2.0.100:
         - 35.2.0.100
-    id: MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts_-_Loss
+    id: MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss
     name: Loss
-    ok_description: Loss rate is <= 0
+    ok_description: Loss rate is <= 0.001
     params:
-      command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0 -c 0.01 -r 900 -l -p -s %row -d %col -a %row
+      command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0.001 -c 0.1 -r 2700 -l -p -s %row -d %col -a %row
       graphUrl:
         141.213.135.18:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         141.213.253.141:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.226.26:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.227.235:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         35.2.0.100:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
       maUrl:
         141.213.135.18:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         141.213.253.141:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.226.26:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.227.235:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         35.2.0.100:
-          default: http://198.111.226.26/esmond/perfsonar/archive
-    retryAttempts: 1
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+    retryAttempts: 3
     retryInterval: 600
     timeout: 60
     type: net.es.maddash.checks.PSNagiosCheck
-    warning_description: Loss rate is >= 0
-  MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput:
-    checkInterval: 28800
-    critical_description: Throughput <= 500Mbps
+    warning_description: Loss rate is >= 0.001
+  MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss_Alternate_MA:
+    checkInterval: 1800
+    critical_description: Loss rate is >= 0.1
+    description: Loss from %row to %col
+    excludeChecks:
+      141.213.135.18:
+        - 141.213.135.18
+      141.213.253.141:
+        - 141.213.253.141
+      198.111.226.26:
+        - 198.111.226.26
+      198.111.227.235:
+        - 198.111.227.235
+      35.2.0.100:
+        - 35.2.0.100
+    id: MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss_Alternate_MA
+    name: Loss Alternate MA
+    ok_description: Loss rate is <= 0.001
+    params:
+      command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0.001 -c 0.1 -r 2700 -l -p -s %row -d %col -a %col
+      graphUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        141.213.253.141:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.226.26:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.227.235:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        35.2.0.100:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+      maUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        141.213.253.141:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.226.26:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.227.235:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        35.2.0.100:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+    retryAttempts: 3
+    retryInterval: 600
+    timeout: 60
+    type: net.es.maddash.checks.PSNagiosCheck
+    warning_description: Loss rate is >= 0.001
+  MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput:
+    checkInterval: 14400
+    critical_description: Throughput <= 100Mbps
     description: Throughput from %row to %col
     excludeChecks:
       141.213.135.18:
@@ -66,41 +108,41 @@ checks:
         - 198.111.227.235
       35.2.0.100:
         - 35.2.0.100
-    id: MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput
+    id: MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput
     name: Throughput
-    ok_description: Throughput >= 900Mbps
+    ok_description: Throughput >= 500Mbps
     params:
-      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.9: -c 0.5: -r 86400 -s %row -d %col -a %row -p tcp'
+      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %row -p tcp'
       graphUrl:
         141.213.135.18:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         141.213.253.141:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.226.26:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.227.235:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         35.2.0.100:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
       maUrl:
         141.213.135.18:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         141.213.253.141:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.226.26:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.227.235:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         35.2.0.100:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
     retryAttempts: 3
     retryInterval: 600
     timeout: 60
     type: net.es.maddash.checks.PSNagiosCheck
-    warning_description: Throughput < 900Mbps
-  MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput:
-    checkInterval: 28800
-    critical_description: Throughput <= 500Mbps
+    warning_description: Throughput < 500Mbps
+  MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA:
+    checkInterval: 14400
+    critical_description: Throughput <= 100Mbps
     description: Throughput from %row to %col
     excludeChecks:
       141.213.135.18:
@@ -113,101 +155,199 @@ checks:
         - 198.111.227.235
       35.2.0.100:
         - 35.2.0.100
-    id: MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput
-    name: Throughput
-    ok_description: Throughput >= 900Mbps
+    id: MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA
+    name: Throughput Alternate MA
+    ok_description: Throughput >= 500Mbps
     params:
-      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.9: -c 0.5: -r 86400 -s %row -d %col -a %row -p udp --udpbandwidth 50000000'
+      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %col -p tcp'
       graphUrl:
         141.213.135.18:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         141.213.253.141:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.226.26:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         198.111.227.235:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
         35.2.0.100:
-          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
       maUrl:
         141.213.135.18:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         141.213.253.141:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.226.26:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         198.111.227.235:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
         35.2.0.100:
-          default: http://198.111.226.26/esmond/perfsonar/archive
+          default: http://198.111.226.26/esmond/perfsonar/archive/
     retryAttempts: 3
     retryInterval: 600
     timeout: 60
     type: net.es.maddash.checks.PSNagiosCheck
-    warning_description: Throughput < 900Mbps
+    warning_description: Throughput < 500Mbps
+  MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput:
+    checkInterval: 14400
+    critical_description: Throughput <= 100Mbps
+    description: Throughput from %row to %col
+    excludeChecks:
+      141.213.135.18:
+        - 141.213.135.18
+      141.213.253.141:
+        - 141.213.253.141
+      198.111.226.26:
+        - 198.111.226.26
+      198.111.227.235:
+        - 198.111.227.235
+      35.2.0.100:
+        - 35.2.0.100
+    id: MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput
+    name: Throughput
+    ok_description: Throughput >= 500Mbps
+    params:
+      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %row -p udp --udpbandwidth 50000000'
+      graphUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        141.213.253.141:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.226.26:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.227.235:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        35.2.0.100:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+      maUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        141.213.253.141:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.226.26:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.227.235:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        35.2.0.100:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+    retryAttempts: 3
+    retryInterval: 600
+    timeout: 60
+    type: net.es.maddash.checks.PSNagiosCheck
+    warning_description: Throughput < 500Mbps
+  MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA:
+    checkInterval: 14400
+    critical_description: Throughput <= 100Mbps
+    description: Throughput from %row to %col
+    excludeChecks:
+      141.213.135.18:
+        - 141.213.135.18
+      141.213.253.141:
+        - 141.213.253.141
+      198.111.226.26:
+        - 198.111.226.26
+      198.111.227.235:
+        - 198.111.227.235
+      35.2.0.100:
+        - 35.2.0.100
+    id: MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA
+    name: Throughput Alternate MA
+    ok_description: Throughput >= 500Mbps
+    params:
+      command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %col -p udp --udpbandwidth 50000000'
+      graphUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        141.213.253.141:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.226.26:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        198.111.227.235:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+        35.2.0.100:
+          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+      maUrl:
+        141.213.135.18:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        141.213.253.141:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.226.26:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        198.111.227.235:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+        35.2.0.100:
+          default: http://198.111.226.26/esmond/perfsonar/archive/
+    retryAttempts: 3
+    retryInterval: 600
+    timeout: 60
+    type: net.es.maddash.checks.PSNagiosCheck
+    warning_description: Throughput < 500Mbps
 dashboards:
   -
     added_by_mesh_agent: 1
     grids:
       -
-        name: 'MPerf Mesh - TCP BWCTL Test Between DICE Bandwidth Hosts'
+        name: 'MPerf Mesh - TCP BWCTL Test Between BWCTL Hosts'
       -
-        name: 'MPerf Mesh - UDP BWCTL Test Between DICE Bandwidth Hosts'
+        name: 'MPerf Mesh - UDP BWCTL Test Between BWCTL Hosts'
       -
-        name: 'MPerf Mesh - OWAMP Test Between DICE Latency Hosts'
+        name: 'MPerf Mesh - OWAMP Test Between OWAMP Hosts'
     name: MPerf Mesh
+database: /var/lib/maddash/
 grids:
   -
     added_by_mesh_agent: 1
     checks:
-      - MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput
+      - MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput
+      - MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA
     colOrder: alphabetical
     columnAlgorithm: all
-    columns: MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts
+    columns: MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts
     excludeSelf: 1
-    name: 'MPerf Mesh - TCP BWCTL Test Between DICE Bandwidth Hosts'
+    name: 'MPerf Mesh - TCP BWCTL Test Between BWCTL Hosts'
     rowOrder: alphabetical
-    rows: MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts
+    rows: MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts
     statusLabels:
-      critical: Throughput <= 500Mbps
+      critical: Throughput <= 100Mbps
       notrun: Check has not yet run
-      ok: Throughput >= 900Mbps
+      ok: Throughput >= 500Mbps
       unknown: Unable to retrieve data
-      warning: Throughput < 900Mbps
+      warning: Throughput < 500Mbps
   -
     added_by_mesh_agent: 1
     checks:
-      - MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts_-_Throughput
+      - MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput
+      - MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts_-_Throughput_Alternate_MA
     colOrder: alphabetical
     columnAlgorithm: all
-    columns: MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts
+    columns: MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts
     excludeSelf: 1
-    name: 'MPerf Mesh - UDP BWCTL Test Between DICE Bandwidth Hosts'
+    name: 'MPerf Mesh - UDP BWCTL Test Between BWCTL Hosts'
     rowOrder: alphabetical
-    rows: MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts
+    rows: MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts
     statusLabels:
-      critical: Throughput <= 500Mbps
+      critical: Throughput <= 100Mbps
       notrun: Check has not yet run
-      ok: Throughput >= 900Mbps
+      ok: Throughput >= 500Mbps
       unknown: Unable to retrieve data
-      warning: Throughput < 900Mbps
+      warning: Throughput < 500Mbps
   -
     added_by_mesh_agent: 1
     checks:
-      - MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts_-_Loss
+      - MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss
+      - MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts_-_Loss_Alternate_MA
     colOrder: alphabetical
     columnAlgorithm: all
-    columns: MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts
+    columns: MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts
     excludeSelf: 1
-    name: 'MPerf Mesh - OWAMP Test Between DICE Latency Hosts'
+    name: 'MPerf Mesh - OWAMP Test Between OWAMP Hosts'
     rowOrder: alphabetical
-    rows: MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts
+    rows: MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts
     statusLabels:
-      critical: Loss rate is >= 0.01
+      critical: Loss rate is >= 0.1
       notrun: Check has not yet run
-      ok: Loss rate is <= 0
+      ok: Loss rate is <= 0.001
       unknown: Unable to retrieve data
-      warning: Loss rate is >= 0
+      warning: Loss rate is >= 0.001
 groupMembers:
   -
     added_by_mesh_agent: yes
@@ -230,21 +370,24 @@ groupMembers:
     id: 35.2.0.100
     label: LIVA3 (wi-fi)
 groups:
-  MPerf_Mesh_-_OWAMP_Test_Between_DICE_Latency_Hosts:
+  MPerf_Mesh_-_OWAMP_Test_Between_OWAMP_Hosts:
     - 35.2.0.100
     - 141.213.253.141
     - 198.111.226.26
     - 141.213.135.18
     - 198.111.227.235
-  MPerf_Mesh_-_TCP_BWCTL_Test_Between_DICE_Bandwidth_Hosts:
+  MPerf_Mesh_-_TCP_BWCTL_Test_Between_BWCTL_Hosts:
     - 35.2.0.100
     - 141.213.253.141
     - 198.111.226.26
     - 141.213.135.18
     - 198.111.227.235
-  MPerf_Mesh_-_UDP_BWCTL_Test_Between_DICE_Bandwidth_Hosts:
+  MPerf_Mesh_-_UDP_BWCTL_Test_Between_BWCTL_Hosts:
     - 35.2.0.100
     - 141.213.253.141
     - 198.111.226.26
     - 141.213.135.18
     - 198.111.227.235
+http:
+  port: 8881
+serverHost: localhost
