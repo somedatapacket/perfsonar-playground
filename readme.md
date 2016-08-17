@@ -33,3 +33,23 @@ https://lists.internet2.edu/sympa/arc/perfsonar-user/2015-07/msg00073.html
 Useful Examples:
 
 http://ps-dashboard.es.net/
+
+Horrible Detail:
+
+When querying the local esmond instance, the following could be returned:
+ 
+HTTP/1.1 301 MOVED PERMANENTLY
+Date: Sat, 18 Apr 2015 01:05:19 GMT
+Server: Apache/2.2.15 (CentOS)
+Location: http://localhost/esmond/perfsonar/archive/
+Content-Length: 0
+Connection: close
+Content-Type: text/html; charset=utf-8
+ 
+ 
+Check the script and make sure the URL is:
+ 
+ 
+http://localhost/esmond/perfsonar/archive/ 
+
+and not http://localhost/esmond/perfsonar/archive
