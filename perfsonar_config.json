@@ -41,24 +41,12 @@
                      "description" : "LIVA3 (wi-fi)"
                   }
                ],
-               "administrators" : [
-                  {
-                     "email" : "ppatel@umich.edu",
-                     "name" : "Pradip Patel"
-                  }
-               ],
                "location" : {
                   "city" : "Ann Arbor",
                   "longitude" : "-83.742831",
                   "latitude" : "42.275883",
                   "state" : "MI"
                }
-            }
-         ],
-         "administrators" : [
-            {
-               "email" : "ppatel@umich.edu",
-               "name" : "Pradip Patel"
             }
          ],
          "measurement_archives" : [
@@ -100,12 +88,15 @@
          },
          "parameters" : {
             "protocol" : "tcp",
-            "tool" : "bwctl/iperf3",
+            "omit_interval" : "10",
             "duration" : "20",
-            "type" : "perfsonarbuoy/bwctl",
-            "interval" : "14400"
+            "interval" : "14400",
+            "force_bidirectional" : "1",
+            "tool" : "bwctl/iperf3",
+            "random_start_percentage" : "25",
+            "type" : "perfsonarbuoy/bwctl"
          },
-         "description" : "TCP BWCTL Test Between DICE Bandwidth Hosts"
+         "description" : "TCP BWCTL Test Between BWCTL Hosts"
       },
       {
          "members" : {
@@ -121,12 +112,15 @@
          "parameters" : {
             "protocol" : "udp",
             "udp_bandwidth" : "50000000",
-            "tool" : "bwctl/iperf3",
+            "omit_interval" : "10",
             "duration" : "10",
-            "type" : "perfsonarbuoy/bwctl",
-            "interval" : "86400"
+            "interval" : "21600",
+            "force_bidirectional" : "1",
+            "tool" : "bwctl/iperf3",
+            "random_start_percentage" : "25",
+            "type" : "perfsonarbuoy/bwctl"
          },
-         "description" : "UDP BWCTL Test Between DICE Bandwidth Hosts"
+         "description" : "UDP BWCTL Test Between BWCTL Hosts"
       },
       {
          "members" : {
@@ -140,12 +134,16 @@
             "type" : "mesh"
          },
          "parameters" : {
-            "bucket_width" : "0.001",
+            "force_bidirectional" : "1",
+            "loss_threshold" : "10",
+            "bucket_width" : "0.0001",
+            "packet_padding" : "0",
             "sample_count" : "600",
             "packet_interval" : "0.1",
-            "type" : "perfsonarbuoy/owamp"
+            "type" : "perfsonarbuoy/owamp",
+            "session_count" : "10800"
          },
-         "description" : "OWAMP Test Between DICE Latency Hosts"
+         "description" : "OWAMP Test Between OWAMP Hosts"
       }
    ],
    "description" : "MPerf Mesh"
