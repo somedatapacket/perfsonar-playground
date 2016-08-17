@@ -1,5 +1,7 @@
 Useful Commands:
 
+/usr/lib/perfsonar/bin/build_json -o /var/www/html/perfsonar_config.json perfsonar_config.conf
+
 /usr/lib/perfsonar/bin/generate_configuration
 
 /usr/lib/perfsonar/bin/generate_gui_configuration
