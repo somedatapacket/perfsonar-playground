@@ -21,15 +21,15 @@ checks:
       command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0.001 -c 0.1 -r 2700 -l -p -s %row -d %col -a %row
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%row
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
@@ -68,15 +68,15 @@ checks:
       command: /usr/lib64/nagios/plugins/check_owdelay.pl -u %maUrl -w 0.001 -c 0.1 -r 2700 -l -p -s %row -d %col -a %col
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%col
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%col
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%col
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%col
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&agent=%col
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
@@ -115,15 +115,15 @@ checks:
       command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %row -p tcp'
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%row
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
@@ -162,15 +162,15 @@ checks:
       command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %col -p tcp'
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%col
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%col
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%col
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%col
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=tcp&agent=%col
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
@@ -209,15 +209,15 @@ checks:
       command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %row -p udp --udpbandwidth 50000000'
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%row
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
@@ -256,15 +256,15 @@ checks:
       command: '/usr/lib64/nagios/plugins/check_throughput.pl -u %maUrl -w 0.5: -c 0.1: -r 86400 -s %row -d %col -a %col -p udp --udpbandwidth 50000000'
       graphUrl:
         141.213.135.18:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%col
         141.213.253.141:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%col
         198.111.226.26:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%col
         198.111.227.235:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%col
         35.2.0.100:
-          default: http://198.111.226.26/perfsonar-graphs/graphWidget.cgi?
+          default: /perfsonar-graphs/graphWidget.cgi?url=%maUrl&source=%row&dest=%col&protocol=udp&filter=bw-target-bandwidth:50000000&agent=%col
       maUrl:
         141.213.135.18:
           default: http://198.111.226.26/esmond/perfsonar/archive/
