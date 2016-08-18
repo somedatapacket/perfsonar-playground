@@ -10,6 +10,8 @@ Useful Commands:
 
 /etc/init.d/maddash-server restart
 
+/etc/init.d/bwctl-server restart
+
 Useful Documentation:
 
 http://docs.perfsonar.net/multi_mesh_server_config.html
