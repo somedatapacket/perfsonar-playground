@@ -51,23 +51,23 @@
          ],
          "measurement_archives" : [
             {
-               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
-               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
                "type" : "traceroute"
             },
             {
-               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
-               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
                "type" : "perfsonarbuoy/owamp"
             },
             {
-               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
-               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
                "type" : "perfsonarbuoy/bwctl"
             },
             {
-               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive",
-               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive",
+               "read_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
+               "write_url" : "http://198.111.226.26/esmond/perfsonar/archive/",
                "type" : "pinger"
             }
          ],
@@ -90,7 +90,7 @@
             "protocol" : "tcp",
             "omit_interval" : "10",
             "duration" : "20",
-            "interval" : "14400",
+            "interval" : "3300",
             "force_bidirectional" : "1",
             "tool" : "bwctl/iperf3",
             "random_start_percentage" : "25",
@@ -114,10 +114,10 @@
             "udp_bandwidth" : "50000000",
             "omit_interval" : "10",
             "duration" : "10",
-            "interval" : "21600",
+            "interval" : "3600",
             "force_bidirectional" : "1",
             "tool" : "bwctl/iperf3",
-            "random_start_percentage" : "25",
+            "random_start_percentage" : "45",
             "type" : "perfsonarbuoy/bwctl"
          },
          "description" : "UDP BWCTL Test Between BWCTL Hosts"
