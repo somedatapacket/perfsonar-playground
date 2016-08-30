@@ -66,3 +66,4 @@ assign net 198.111.227.235/32 root
 assign net 141.213.253.141/32 root
 assign net 141.213.135.18/32 root
 assign net 35.2.0.100/32 root
+assign net 141.214.200.152/32 root
