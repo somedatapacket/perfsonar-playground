@@ -14,37 +14,43 @@
                      "addresses" : [
                         "198.111.226.26"
                      ],
-                     "description" : "iLab pstoolkit MA"
+                     "description" : "iLab central MA"
                   },
                   {
                      "addresses" : [
                         "198.111.227.235"
                      ],
-                     "description" : "iLab pstoolkit ROY"
+                     "description" : "iLab hiperf node"
                   },
                   {
                      "addresses" : [
-                        "141.213.253.141"
+                        "198.108.9.213"
                      ],
-                     "description" : "LIVA1"
+                     "description" : "SEB node (LIVA1)"
                   },
                   {
                      "addresses" : [
                         "141.213.135.18"
                      ],
-                     "description" : "LIVA2"
+                     "description" : "ITCOM node (LIVA2)"
                   },
                   {
                      "addresses" : [
-                        "35.2.0.100"
+                        "198.108.9.229"
                      ],
-                     "description" : "LIVA3 (wi-fi)"
+                     "description" : "ASB node (LIVA3)"
+                  },
+                  {
+                     "addresses" : [
+                        "198.108.9.245"
+                     ],
+                     "description" : "ARBL node (LIVA4)"
                   },
                   {
                      "addresses" : [
                         "141.214.200.152"
                      ],
-                     "description" : "UMHS1 (rpi)"
+                     "description" : "UMHS node (rpi1)"
                   }
                ],
                "location" : {
@@ -86,9 +92,10 @@
             "members" : [
                "198.111.226.26",
                "198.111.227.235",
-               "141.213.253.141",
+               "198.108.9.213",
+               "198.108.9.229",
+               "198.108.9.245",
                "141.213.135.18",
-               "35.2.0.100",
                "141.214.200.152"
             ],
             "type" : "mesh"
@@ -110,16 +117,17 @@
             "members" : [
                "198.111.226.26",
                "198.111.227.235",
-               "141.213.253.141",
+               "198.108.9.213",
+               "198.108.9.229",
+               "198.108.9.245",
                "141.213.135.18",
-               "35.2.0.100",
                "141.214.200.152"
             ],
             "type" : "mesh"
          },
          "parameters" : {
             "protocol" : "udp",
-            "udp_bandwidth" : "50000000",
+            "udp_bandwidth" : "200000000",
             "omit_interval" : "10",
             "duration" : "10",
             "interval" : "3600",
@@ -135,9 +143,10 @@
             "members" : [
                "198.111.226.26",
                "198.111.227.235",
-               "141.213.253.141",
+               "198.108.9.213",
+               "198.108.9.229",
+               "198.108.9.245",
                "141.213.135.18",
-               "35.2.0.100",
                "141.214.200.152"
             ],
             "type" : "mesh"
