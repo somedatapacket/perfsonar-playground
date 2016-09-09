@@ -19,6 +19,7 @@ sudo -s
 source /opt/rh/python27/enable
 /opt/rh/python27/root/usr/bin/virtualenv --prompt="(esmond)" .
 . bin/activate
+./configure_esmond
 
 python esmond/manage.py add_user_ip_address example_user 10.0.1.1 10.0.2.0/24
 
