@@ -1,4 +1,4 @@
-<strong>Useful Commands:</strong>
+<strong>Useful Commands (primarily pS 3.5):</strong>
 
 /usr/lib/perfsonar/bin/build_json -o /var/www/html/perfsonar_config.json perfsonar_config.conf
 
