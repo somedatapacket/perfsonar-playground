@@ -23,6 +23,8 @@ source /opt/rh/python27/enable
 
 python esmond/manage.py add_user_ip_address example_user 10.0.1.1 10.0.2.0/24
 
+View ip auth host list at https://<your-host>/esmond/admin using django creds
+
 <strong>Useful Documentation:</strong>
 
 http://docs.perfsonar.net/multi_mesh_server_config.html
